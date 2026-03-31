@@ -654,12 +654,15 @@
         .about-photos {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 100px;
+            align-items: flex-start;
+            gap: 15px; /* Aradaki boşluğu daralttık */
             margin-bottom: 20px;
+            flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçer */
         }
 
         .about-photo-item {
+            flex: 1; /* Eşit genişlikte dağılırlar */
+            min-width: 80px; /* Çok küçülmelerini engeller */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -667,13 +670,11 @@
         }
 
         .about-photo-circle {
-            width: 100px;
-            height: 100px;
+            width: 80px; /* Mobilde daha makul bir boyut */
+            height: 80px;
             border-radius: 50%;
-            border: 3px solid var(--gold);
+            border: 2px solid var(--gold);
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .about-photo-circle:hover {
