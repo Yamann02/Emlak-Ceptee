@@ -602,9 +602,8 @@
 
         /* ── DİĞER BÖLÜMLER ── */
         .about-container {
-            margin: 20px 0 0 0; /* Negatif marginler kaldırıldı */
-            width: 100%; /* Kartın genişliğine uyum sağlasın */
-            padding: 30px 20px;
+            margin: 20px -400px 0 -400px;
+            padding: 40px 36px;
             border-radius: 18px;
             background: var(--glass);
             backdrop-filter: blur(28px);
@@ -615,8 +614,8 @@
             overflow: hidden;
             opacity: 0;
             transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+                opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .about-container.show {
@@ -654,15 +653,12 @@
         .about-photos {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            gap: 15px; /* Aradaki boşluğu daralttık */
+            align-items: center;
+            gap: 100px;
             margin-bottom: 20px;
-            flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçer */
         }
 
         .about-photo-item {
-            flex: 1; /* Eşit genişlikte dağılırlar */
-            min-width: 80px; /* Çok küçülmelerini engeller */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -670,11 +666,13 @@
         }
 
         .about-photo-circle {
-            width: 80px; /* Mobilde daha makul bir boyut */
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 2px solid var(--gold);
+            border: 3px solid var(--gold);
             overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .about-photo-circle:hover {
@@ -900,6 +898,51 @@
         .notice-icon {
             font-size: 16px;
         }
+
+
+        /* 📱 SADECE MOBİL İÇİN ÖZEL AYARLAR (768px'den küçük ekranlar) */
+        @media (max-width: 767px) {
+            .about-container {
+                margin-left: 0 !important;   /* Mobilde o -400px genişlemeyi siler */
+                margin-right: 0 !important;
+                padding: 30px 15px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                max-height: 0; /* Başlangıçta kapalı kalsın */
+                overflow: hidden;
+            }
+
+            .about-container.show {
+                max-height: 6000px !important; /* Açıldığında hepsini gösterir */
+            }
+
+            .about-photos {
+                gap: 8px !important; /* Yuvarlakların arasını kapatır */
+                justify-content: center !important;
+                flex-wrap: nowrap !important;
+            }
+
+            .about-photo-circle {
+                width: 80px !important; /* Yuvarlakları mobilde küçültür */
+                height: 80px !important;
+            }
+
+            .about-photo-label {
+                font-size: 10px !important;
+                min-height: 35px;
+                line-height: 1.2;
+            }
+
+            .certificates-grid {
+                gap: 10px !important;
+                justify-content: center !important;
+            }
+
+            .certificate-box {
+                width: calc(50% - 10px) !important; /* Sertifikaları mobilde 2'li yapar */
+                height: 160px !important;
+            }
+        }
     </style>
 </head>
 
@@ -1073,19 +1116,19 @@
                 <div class="about-photos">
                     <div class="about-photo-item">
                         <div class="about-photo-circle">
-                            <img src="guncelleniyor.jpg" alt="Fotoğraf 1">
+                            <img src="güncelleniyor.jpg" alt="Fotoğraf 1">
                         </div>
                         <div class="about-photo-label">Av.Muhammed Asaf GÜVEN</div>
                     </div>
                     <div class="about-photo-item">
                         <div class="about-photo-circle">
-                            <img src="guncelleniyor.jpg" alt="Fotoğraf 2">
+                            <img src="Güncelleniyor.jpg" alt="Fotoğraf 2">
                         </div>
                         <div class="about-photo-label">Av.Hüseyin Can GÜZEL</div>
                     </div>
                     <div class="about-photo-item">
                         <div class="about-photo-circle">
-                            <img src="guncelleniyor.jpg" alt="Fotoğraf 3">
+                            <img src="Güncelleniyor.jpg" alt="Fotoğraf 3">
                         </div>
                         <div class="about-photo-label">Av.Ebrar GÜZEL</div>
                     </div>
